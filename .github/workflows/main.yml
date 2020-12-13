@@ -19,5 +19,11 @@ jobs:
         uses: abatilo/actions-poetry@v2.0.0
         with:
           poetry-version: 1.0
-      - name: View poetry --help
-        run: poetry --help
+      - name: install Graphviz
+        run: sudo apt install graphviz
+        shell: bash
+      - name: poetry install
+        run: poetry install
+      - name: draw diagram
+        run: python ./diagram.py
+        shell: bash
