@@ -1,14 +1,12 @@
 name: CI
 on:
-  push:
+  pull_request:
     branches: 
       - main
-      - develop
+    types: [closed]
 
 jobs:
   ci:
-    strategy:
-      fail-fast: false
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
@@ -25,7 +23,8 @@ jobs:
       - name: poetry install
         run: poetry install
       - name: draw diagram
-        run: python ./diagram.py
+        run: |
+          python ./main_diagram.py
         shell: bash
       - name: configure git
         env:
