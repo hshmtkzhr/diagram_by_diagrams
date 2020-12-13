@@ -1,3 +1,4 @@
+import os
 from diagrams import Cluster, Diagram, Edge
 # generic
 from diagrams.generic.device import Mobile, Tablet
@@ -26,7 +27,12 @@ from diagrams.onprem.iac import Terraform, Ansible
 from diagrams.onprem.ci import GitlabCI, Jenkins
 from diagrams.onprem.vcs import Gitlab
 
-with Diagram(name="A Web Service NOWHERE", filename="./images/overview.png", show=False):
+if "workflow" in os.environ.get('RUNNING_AT', ""):
+    ASSETS_PATH="images"
+else:
+    ASSETS_PATH="images_dev"
+
+with Diagram(name="A Web Service NOWHERE", filename="./" + ASSETS_PATH + "/main_diagram", show=False):
     user = Mobile("User")
     cdn = CDN("CloudCDN")
     gcs = GCS("CloudStorage")
