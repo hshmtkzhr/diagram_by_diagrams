@@ -26,10 +26,7 @@ jobs:
         env:
           RUNNING_AT: workflow
         run: |
-          #if [ -z "$VIRTUAL_ENV" ]; then
-          #  eval "$(pyenv init -)"
-          #fi
-          source $(poetry run which python)/../activate
+          source $(dirname $(poetry run which python))/activate
           python ./main_diagram.py
         shell: bash
       - name: configure git
