@@ -39,7 +39,7 @@ jobs:
       - name: git commit
         run: |
           git add -A
-          if [ $() -eq 0 ]; then
+          if [ $(git diff --cached --numstat | wc -l) -eq 0 ]; then
             echo "no difference found"
             exit 0
           fi
