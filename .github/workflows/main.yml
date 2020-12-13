@@ -22,19 +22,13 @@ jobs:
         shell: bash
       - name: poetry install
         run: poetry install
-      - name: for debug1
-        run: |
-          echo $VIRTUAL_ENV
-      #- name: for debug2
-      #  run: |
-      #    import sys
-      #    import pprint
-      #    pprint.pprint(sys.path)
-      #  shell: python
       - name: draw diagram
         env:
           RUNNING_AT: workflow
         run: |
+          if [ -z "$VIRTUAL_ENV" ]; then
+            eval "$(pyenv init -)"
+          fi
           python ./main_diagram.py
         shell: bash
       - name: configure git
