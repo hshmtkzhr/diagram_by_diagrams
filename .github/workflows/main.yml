@@ -26,6 +26,7 @@ jobs:
         env:
           RUNNING_AT: workflow
         run: |
+          ls -alR
           python ./main_diagram.py
         shell: bash
       - name: configure git
