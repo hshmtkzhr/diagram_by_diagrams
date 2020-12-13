@@ -27,3 +27,24 @@ jobs:
       - name: draw diagram
         run: python ./diagram.py
         shell: bash
+      - name: configure git
+        env:
+          TOKEN: ${{ secrets.PRIVATE_ACCESS_TOKEN }}
+          EMAIL: ${{ secrets.GIT_USER_EMAIL }}
+          UNAME: ${{ secrets.GIT_USER_NAME }}
+        run: |
+          git config --local user.name ${UNAME}
+          git config --local user.email ${EMAIL}
+          git remote set-url origin https://${UNAME}:${TOKEN}@github.com/${UNAME}/diagram_by_diagrams
+      - name: git commit
+        run: |
+          git add -A
+          if [ $() -eq 0 ]; then
+            echo "no difference found"
+            exit 0
+          fi
+          git commit -am 'Update diagram pushed by workflow'
+        shell: bash
+      - name: git push
+        run: git push origin HEAD
+        shell: bash
