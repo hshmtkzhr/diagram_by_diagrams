@@ -24,13 +24,13 @@ jobs:
         run: poetry install
       - name: for debug1
         run: |
-          ls -alR /home/runner/.cache/pypoetry/virtualenvs
-      - name: for debug2
-        run: |
-          import sys
-          import pprint
-          pprint.pprint(sys.path)
-        shell: python
+          echo $VIRTUAL_ENV
+      #- name: for debug2
+      #  run: |
+      #    import sys
+      #    import pprint
+      #    pprint.pprint(sys.path)
+      #  shell: python
       - name: draw diagram
         env:
           RUNNING_AT: workflow
