@@ -1,8 +1,8 @@
 # diagram_by_diagrams
-[Diagrams](https://diagrams.mingrammer.com/) is the python library providing the functionality to draw diagram as a code. This is my practical code for drawing diagram with Diagrams.
+[Diagrams](https://diagrams.mingrammer.com/) is the python library providing the functionality to draw diagram as a code. This is my practical code for drawing diagram with the Diagrams.
 
 ## setup
-Graphviz is depended by diagrams as executable command. So you have to install and add PATH env for this previously.
+Graphviz is depended by diagrams as executable command. So you have to install and add PATH env previously.
 ```bash
 # on mac we can install by homebrew.
 brew install graphviz
@@ -18,4 +18,8 @@ Before running, need to activate virtual-env
 source ./.venv/bin/activate
 ```
 
-A
+## Diagrams
+
+### Web Service No-Where
+This diagrams is my first mockup for practice. It describe sample web service architecture.
+<img src="./images_dev/main_diagram.png" width="1024">
