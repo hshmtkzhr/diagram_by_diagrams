@@ -130,3 +130,6 @@ dmypy.json
 
 # private
 images_dev
+
+# mac
+.DS_Store
