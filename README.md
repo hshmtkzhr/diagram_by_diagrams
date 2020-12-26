@@ -22,4 +22,4 @@ source ./.venv/bin/activate
 
 ### Web Service No-Where
 This diagrams is my first mockup for practice. It describe sample web service architecture.
-<img src="./images_dev/main_diagram.png" width="1024">
+<img src="./images/main_diagram.png" width="1024">
